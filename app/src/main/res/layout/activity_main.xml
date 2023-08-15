@@ -1,0 +1,31 @@
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+<!--        <variable-->
+<!--            name="user"-->
+<!--            type="com.example.signupapp.authenticate." />-->
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/drawer_layout"
+        android:layout_gravity="center"
+        android:fitsSystemWindows="true"
+        tools:context=".MainActivity"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Logout"
+            android:layout_alignParentBottom="true"
+            android:onClick="logout"/>
+
+    </RelativeLayout>
+
+
+</layout>

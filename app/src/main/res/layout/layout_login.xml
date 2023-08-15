@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data
+        >
+        <variable
+            name="LoginViewModel"
+            type="com.example.signupapp.authenticate.login.LoginViewModel" />
+        <variable
+            name="clickHandler"
+            type="com.example.signupapp.authenticate.ClickHandler" />
+    </data>
+    <RelativeLayout
+        android:orientation="vertical"
+        style="@style/loginParent">
+        <ScrollView
+            style="@style/parent">
+
+            <RelativeLayout
+                style="@style/parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:weightSum="12">
+
+                    <LinearLayout
+                        style="@style/parent"
+                        android:background="@drawable/login_shape_bk"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <ImageView
+                            style="@style/parent"
+                            android:background="@drawable/ic_login_bk"
+                            android:contentDescription="login background" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp">
+
+
+                    <TextView
+                        style="@style/headerText"
+                        android:layout_gravity="center"
+                        android:text="App Snipp"
+                        android:layout_marginTop="40dp"/>
+                    <FrameLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </FrameLayout>
+                    <!--                    <include-->
+                    <!--                        layout="@layout/layout_register"/>-->
+                    <com.google.android.material.card.MaterialCardView
+
+                        style="@style/loginCard"
+                        app:cardCornerRadius="@dimen/loginCardRadius"
+                        android:elevation="5dp"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:layout_marginBottom="@dimen/loginViewsMargin"
+                        android:background="@color/whiteCardColor">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <LinearLayout
+                                android:id="@+id/loginlayout"
+                                style="@style/linearParent"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/loginViewsMargin">
+
+                                <TextView
+                                    style="@style/headerTextPrimary"
+                                    android:layout_marginTop="@dimen/loginViewsMargin"
+                                    android:text="Login" />
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="12dp"
+                                    android:hint="Email">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@={LoginViewModel.email}"/>
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="12dp"
+                                    app:endIconMode="password_toggle"
+                                    android:hint="password">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@={LoginViewModel.password}"/>
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                                <TextView
+                                    style="@style/viewParent"
+                                    android:layout_gravity="end"
+                                    android:layout_marginTop="10dp"
+                                    android:onClick="forget"
+                                    android:text="Forgot Password?"
+                                    android:textColor="@color/primaryTextColor"
+                                    android:textSize="@dimen/newsMoreTextSize" />
+
+                                <Button
+                                    android:id="@+id/cirLoginButton"
+                                    style="@style/loginButton"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="@dimen/loginViewsMargin"
+                                    android:onClick="@{LoginViewModel::onLoginClicked}"
+                                    android:text="Login" />
+
+                                <TextView
+                                    style="@style/parent"
+                                    android:layout_marginTop="@dimen/loginViewsMargin"
+                                    android:onClick="@{clickHandler::newAccountClicked}"
+                                    android:text="@string/login_signup_hint"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/primaryTextColor"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel" />
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/loginphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue With Phone"
+android:layout_alignParentBottom="true"
+            android:onClick="loginphone"
+            android:layout_marginBottom="50dp"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</layout>
+
+
+
+
